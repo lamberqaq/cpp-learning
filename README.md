@@ -5,7 +5,7 @@
 
 ## ide:vscode
 ### tasks.json
-{
+·{
 	"version": "2.0.0",
 	"tasks": [
 		{
@@ -34,7 +34,7 @@
 			"detail": "编译器: /usr/bin/clang++"
 		}
 	]
-}
+}·
 ### launch.json
 {
     // Use IntelliSense to learn about possible attributes.
