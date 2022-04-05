@@ -5,7 +5,8 @@
 
 ## ide:vscode
 ### tasks.json
-···{
+```
+{
 	"version": "2.0.0",
 	"tasks": [
 		{
@@ -34,8 +35,10 @@
 			"detail": "编译器: /usr/bin/clang++"
 		}
 	]
-}···
+}
+```
 ### launch.json
+```
 {
     // Use IntelliSense to learn about possible attributes.
     // Hover to view descriptions of existing attributes.
@@ -56,13 +59,19 @@
         }
     ]
 }
+```
 ### code-runner
-这里的*.cpp是关键，默认的配置为$fileName，支持当前workspace单一的c++文件。
-e.g.只有一个helloworld.cpp（包含main函数），如果helloworld.cpp中引用了自己写的其他c++类等，会出现链接错误
+code-runner提供了一键运行工程代码的便利（右键->Run Code）
+code-runer的默认配置```"cpp": "cd $dir && g++ -std=c++17 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt"```，如果workspace中只有一个helloworld.cpp（包含main函数），是可以工作的。如果helloworld.cpp中引用了自己写的其他c++类等，需要编译多个c++文件，会出现链接错误
+```
 C++ Error: Undefined symbols for architecture x86_64
+```
+把```$fileName```替换为```*.cpp```可以解决这个问题
+```
 "code-runner.executorMap": {
 ...
 "cpp": "cd $dir && g++ -std=c++17 *.cpp -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
 ...
 }
+```
 
